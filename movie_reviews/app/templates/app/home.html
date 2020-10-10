@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ movie.title }}</h5>
                     <p class="card-text">{{ movie.director }}</p>
-                    <a href="#" class="btn btn-primary">More...</a>
+                    <a href="{% url 'details' movie.id %}" class="btn btn-primary">More...</a>
                 </div>
             </div>
         {% endfor %}

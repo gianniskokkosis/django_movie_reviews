@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <div class="card mb-3 mt-5">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ obj.title }}</h5>
+            <p class="card-text">{{ obj.description }}</p>
+            <p class="card-text"><small class="text-muted">Directed by {{ obj.director }}</small></p>
+        </div>
+    </div>
+    <div style="text-align: center" class="mb-2">
+        <a class="btn btn-success btn-lg" href="{% url 'add-review' obj.id %}">Add Review</a>
+    </div>
+    <hr>
+    <div style="text-align: center">
+        <h1 class="mb-2">Reviews</h1>
+    </div>
+    {% for review in reviews %}
+        <div class="card w-100 mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ review.review_title }}</h5>
+                <p class="card-text">{{ review.content }}</p>
+                <h5><small class="text-muted">Date added {{ review.date_added }}</small></h5>
+            </div>
+        </div>   
+    {% endfor %}
+    
+
+
+{% endblock content %}
