@@ -6,6 +6,7 @@ class Movie(models.Model):
     description = models.TextField()
     director = models.CharField(max_length=100)
     cast = models.CharField(max_length=200)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.title

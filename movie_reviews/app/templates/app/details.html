@@ -1,7 +1,7 @@
 {% extends 'app/base.html' %}
 {% block content %}
     <div class="card mb-3 mt-5">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="{{ obj.image.url }}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{ obj.title }}</h5>
             <p class="card-text">{{ obj.description }}</p>
