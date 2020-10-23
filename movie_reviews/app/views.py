@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Movie, Review
-from .forms import ReviewForm
 import datetime
 
 
@@ -24,15 +23,12 @@ def details(request, pk):
     return render(request, 'app/details.html', context)
 
 def add_review(request, pk):
-    form = ReviewForm(request.POST)
-
     if request.method == 'POST':
-        if form.is_valid():
-            title = request.POST.get('title', '')
-            content = request.POST.get('content', '')
-            movie_obj = Movie.objects.get(id=pk)
-            Review.objects.create(review_title=title, content=content, movie=movie_obj)
-            return HttpResponseRedirect('/')
+        title = request.POST.get('title', '')
+        content = request.POST.get('content', '')
+        movie_obj = Movie.objects.get(id=pk)
+        Review.objects.create(review_title=title, content=content, movie=movie_obj)
+        return HttpResponseRedirect('/')
 
 
     return render(request, 'app/add_review.html')
